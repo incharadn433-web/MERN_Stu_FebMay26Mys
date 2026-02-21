@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid lines and grid span</title>
+    <style>
+     .item{
+            background-color: burlywood;
+            color: black;
+            padding: 20px;
+        }
+        .grid-fr{
+            display: grid;
+            grid-template-columns:repeat(4,1fr); /* 3 equal cols*/
+            grid-template-rows: repeat(3,100px);
+            gap:15px;
+            margin: 15px;
+        }
+        .outer{
+            display: grid;
+            background-color: aquamarine;
+            padding: 10px;
+            gap: 10px;
+            grid-template-columns: 2fr 1fr;
+        }
+        .inner{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .inner-item{
+            background-color: aqua;
+            color: black;
+            
+        }
+        </style>
+</head>
+<body>
+    <!-- Nested Grid layouts-->
+     <div class="outer">
+        <div class="item">1</div>
+        <div class="inner">
+            <div class="item inner-item">Nested A</div>
+             <div class="item inner-item">Nested B</div>
+              <div class="item inner-item">Nested C</div>
+               <div class="item inner-item">Nested D</div>
+
+        </div>
+    </div>
+</body>
+</html>
