@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS primitives</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+     <pre id="out"></pre>
+     <button id="runBtn" class="px-3 py-1 rounded mt-2 mb-2 bg-black text-white">Run</button>
+     <script>
+          const out = document.getElementById("out");
+        //Function which accepts variable no. of args
+        function print(...args){
+           //Console 
+           console.log(...args);
+           out.textContent+=args.join("")+"\n";
+
+        }
+           function clearOut(){
+                out.textContent = "";
+
+            }
+        function run(...args){
+            clearOut();
+           const name = "Inchara";
+            print("name =",name,"typeof=",typeof name);
+           const isloggedIn = true;
+            print("isloggedIn =",isloggedIn,"typeof=",typeof isloggedIn);
+           const number = 99.99;
+             print("number =",number,"typeof=",typeof number);
+            const number1 = 90;
+             print("number1 =",number1,"typeof=",typeof number1);
+    
+        }
+             document.getElementById("runBtn").addEventListener("click",run);
+     </script>
+</body>
+</html>
