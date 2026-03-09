@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+.profile-img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+}
+
+.navbar{
+    position:sticky;
+    top:0;
+    background-color:pink;
+    padding:10px;
+    z-index:1000;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:blue;
+    margin-right:15px;
+}
+
+.nav-links{
+    list-style:none;
+    display:inline;
+}
+
+.nav-links li{
+    display:inline;
+    margin-right:15px;
+}
+
+section{
+    padding:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="navbar">
+            <a href="#home" class="logo">Inchara D N</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section id="home">
+    <h1>Inchara D N</h1>
+    <img src="inchara.jpg" alt="My photo" class="profile-img">
+    <p>Student<br>Python | Java | HTML | CSS</p>
+    <a href="#contact">Contact Us</a>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <h3>Full Stack Developer</h3>
+    <p>Experience in HTML and CSS related projects</p>
+</section>
+
+<section id="skills">
+    <h3>My Skills</h3>
+    <h4>MERN Stack</h4>
+    <p>ReactJS, NodeJS, MongoDB</p>
+</section>
+
+<section id="projects">
+    <h3>My Projects</h3>
+    <h4>Gola</h4>
+    <p>Rapid way to book a cab hassle free</p>
+    <a href="https://www.gola.com/" target="_blank">View</a>
+</section>
+
+<section id="contact">
+    <h3>Contact Me</h3>
+    <form>
+        <fieldset>
+            <legend>Contact Form</legend>
+
+            <label>Name</label><br>
+            <input type="text" required><br><br>
+
+            <label>Email</label><br>
+            <input type="email" required><br><br>
+
+            <select>
+                <option>FTE</option>
+                <option>Consultant</option>
+            </select><br><br>
+
+            <button type="submit">Send</button>
+        </fieldset>
+    </form>
+</section>
+
+</body>
+</html>
