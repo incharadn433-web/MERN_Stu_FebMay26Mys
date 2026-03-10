@@ -3,12 +3,10 @@ function invoice(gstRate = 0.18, ...items) {
 
     for (let item of items) {
 
-        // Stop processing if name is STOP
         if (item.name === "STOP") {
             break;
         }
 
-        // Ignore invalid items
         if (!item.price || !item.quty || item.price <= 0 || item.quty <= 0) {
             continue;
         }
