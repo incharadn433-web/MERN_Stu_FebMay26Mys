@@ -5,6 +5,16 @@ const path = require("path");
 
 const filePath = path.join(__dirname,"async-node.txt");
 
+fs.appendFile(filePath,"This is written asynchronously using writeFile().",
+    function(writeError){
+        if(writeError){
+            console.log("write error:",writeError.message);
+            return;
+        }
+        console.log("File appended.");
+    }
+);
+
 //To write to a file
 fs.writeFile(filePath,"This is written asynchronously using writeFile().",
     function(writeError){

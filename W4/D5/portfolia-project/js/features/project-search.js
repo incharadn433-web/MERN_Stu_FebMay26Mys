@@ -14,16 +14,21 @@ function projectView(){
         iconBox.className = "w-20 h-20 mx-auto mb-4 bg-green-900 rounded-2xl flex items-center justify-center";
 
        
-        const iconstatus = document.createElement("span");
-        iconstatus.className = "text-2xl text-white font-bold";
+        const iconcard = document.createElement("span");
+        iconcard.className = "text-2xl text-white font-bold";
         
        
-        iconBox.appendChild(iconstatus);
+        iconBox.appendChild(iconcard);
 
        
         const projectName = document.createElement("h3");
         projectName.className ="text-xl font-bold mb-2";
         projectName.textContent = project.name;
+
+        
+        const projectStatus = document.createElement("h3");
+        projectStatus.className ="text-xl font-bold mb-2 text-white";
+        projectStatus.textContent = project.status;
 
         
         const projectDescription = document.createElement("p");
@@ -34,13 +39,19 @@ function projectView(){
         projectTechnology.className = "text-sm";
         projectTechnology.textContent = project.technologies;
 
+        const projectLiveDemo = document.createElement("p");
+        projectLiveDemo.className = "text-sm";
+        projectLiveDemo.textContent = project.liveDemo;
+
 
     
         card1.appendChild(iconBox);
+        iconBox.appendChild(projectStatus);
         
         card1.appendChild(projectName);
         card1.appendChild(projectDescription);
         card1.appendChild(projectTechnology);
+        card1.appendChild(projectLiveDemo);
         projectsContainer.appendChild(card1);
     });
     console.log("projects opened successfully");
