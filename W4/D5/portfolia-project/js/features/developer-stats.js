@@ -1,41 +1,79 @@
-function ExperienceView(){
-    const experienceContainer= document.getElementById("experience-container");
-    if(!experienceContainer){
-        console.log("experience not found");
-        return;
+/*
+File: developer-stats.js
+Description: Fetches developer statistics from a JSON file and renders them into the portfolio.
+
+Brief Concept Explanation:
+- This file uses the Fetch API to load JSON data asynchronously.
+- response.json() converts the response into a JavaScript object.
+- try/catch handles errors safely.
+- The fetched data is then rendered into the DOM dynamically.
+*/
+
+async function initDeveloperStats() {
+  const statsContainer = document.getElementById("stats-container");
+  const statsMessage = document.getElementById("stats-message");
+
+  if (!statsContainer || !statsMessage) {
+    console.log("Developer stats elements not found.");
+    return;
+  }
+
+  statsContainer.innerHTML = "";
+  statsMessage.textContent = "Loading developer stats...";
+
+  try {
+    const response = await fetch("mock/developer-stats.json");
+
+    if (!response.ok) {
+      throw new Error("Failed to load stats. Status: " + response.status);
     }
-    experienceContainer.innerHTML = "";
-    experiencesData.forEach(function(experience){
-        const card2 = document.createElement("div");
-        card2.className = " h-30 w-210 ml-15 p-8 text-center bg-white rounded-3xl shadow-lg hover:bg-red-300";
 
-        const iconBox = document.createElement("div");
-        iconBox.className = "w-20 h-10 mx-auto mb-4 bg-green-900 rounded-2xl flex items-center justify-center";
+    const data = await response.json();
 
-        const iconcard1 = document.createElement("span");
-        iconcard1.className = "text-2xl text-white font-bold";
-        iconcard1.textContent = experience.label;
-        
-        iconBox.appendChild(iconcard1);
+    console.log("Developer stats loaded:", data);
 
-        const experienceCollege = document.createElement("h3");
-        experienceCollege.className ="text-xl font-bold mb-2";
-        experienceCollege.textContent =experience.college;
+    statsMessage.textContent = "";
 
-        const experienceStudy = document.createElement("p");
-        experienceStudy.className ="text-xl font-bold mb-2";
-        experienceStudy.textContent =experience.study;
+    const statsList = [
+      {
+        title: "Projects",
+        value: data.projects
+      },
+      {
+        title: "GitHub Commits",
+        value: data.githubCommits
+      },
+      {
+        title: "LeetCode Solved",
+        value: data.leetcodeSolved
+      },
+      {
+        title: "Focus Area",
+        value: data.focusArea
+      }
+    ];
 
-        const experiencelabel = document.createElement("p");
-        experiencelabel.className = "text-sm";
-        experiencelabel.textContent = experience.label;
+    statsList.forEach(function (item) {
+      const card = document.createElement("div");
+      card.className = "bg-white rounded-3xl shadow-lg p-8 text-center";
 
+      const heading = document.createElement("h3");
+      heading.className = "text-xl font-bold mb-4";
+      heading.textContent = item.title;
 
+      const value = document.createElement("p");
+      value.className = "text-2xl font-semibold text-blue-700";
+      value.textContent = item.value;
 
-      card2.appendChild(experienceStudy);
-       card2.appendChild(experienceCollege);
-      iconBox.appendChild(experiencelabel);
-       experienceContainer.appendChild(card2);
+      card.appendChild(heading);
+      card.appendChild(value);
 
+      statsContainer.appendChild(card);
     });
+
+  } catch (error) {
+    console.log("Developer stats fetch error:", error);
+    statsMessage.textContent = "Unable to load developer stats at the moment.";
+    statsMessage.className = "text-center mb-8 text-sm text-red-500";
+  }
 }
