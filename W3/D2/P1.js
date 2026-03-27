@@ -1,6 +1,6 @@
 // Arithmetic Operators
 console.log("Arithmetic Operators");
-const a = 2, b = 3;
+let a = 2, b = 3;
 let c = 0;
 console.log("a+b",c=a+b);
 console.log("a-b",a-b);
