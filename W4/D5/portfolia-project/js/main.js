@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded",function(){
     initThemeToggle();
     projectView();
     ExperienceView();
+    initDeveloperStats();
 })
