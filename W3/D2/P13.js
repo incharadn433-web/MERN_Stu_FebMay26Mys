@@ -17,9 +17,8 @@ function varFunctionScoped(){
     if(true){
         var x = 40;
         let y = 50;
+        console.log("y:",y);
     }
         console.log("x:",x);
-        console.log("y:",y);
-
 }
 varFunctionScoped();
