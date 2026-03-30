@@ -7,4 +7,10 @@ document.addEventListener("DOMContentLoaded",function(){
     projectView();
     ExperienceView();
     initDeveloperStats();
+    initTypingAnimation();
+    initRecentlyViewed();
+    searchProjects();
+    initGeolocation();
+    renderHackathons();
+    initDynamicGreeting();
 })
