@@ -36,3 +36,4 @@ function initTypingAnimation() {
     // Start typing
     setTimeout(type, 1000);
 }
+initTypingAnimation();
