@@ -39,3 +39,4 @@ function ExperienceView(){
 
     });
 }
+ ExperienceView();
