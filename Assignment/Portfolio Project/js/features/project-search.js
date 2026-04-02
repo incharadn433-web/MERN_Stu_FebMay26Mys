@@ -158,3 +158,4 @@ function searchProjects() {
     // Initial render
     renderProjects();
 }
+searchProjects();
