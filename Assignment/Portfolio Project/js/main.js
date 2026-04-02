@@ -4,13 +4,9 @@ document.addEventListener("DOMContentLoaded",function(){
     initModal();
     initContactValidation();
     initThemeToggle();
-    projectView();
     ExperienceView();
-    initDeveloperStats();
     initTypingAnimation();
-    initRecentlyViewed();
-    searchProjects();
+    initSearch();
     initGeolocation();
-    renderHackathons();
     initDynamicGreeting();
-})
+});
