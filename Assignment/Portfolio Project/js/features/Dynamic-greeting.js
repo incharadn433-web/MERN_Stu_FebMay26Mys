@@ -15,6 +15,6 @@
         greeting = "Good Night"; 
     }
 
-    greetingEl.textContent = `${greeting}`;
+     greetingEl.textContent = greeting + ", I am";
 }
 initDynamicGreeting();
