@@ -1,7 +1,6 @@
 //Setting and reading cookies
 const express = require("express");
 const cookieParser =  require("cookie-parser");
-const { message } = require("statuses");
 const app = express();
 //cookie-parser reads the cookie request header
 //and places the parsed values into req.cookies
