@@ -46,3 +46,4 @@ function initRecentlyViewed() {
 
     container.appendChild(cardsGrid);
 }
+initRecentlyViewed();
