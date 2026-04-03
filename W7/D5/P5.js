@@ -37,7 +37,7 @@ app.get("/profile",function(req,res){
     });
 });
 
-app.get("/admin",requireRole("admin"),function(req,res){
+app.get("/admin",requireRole(["admin"]),function(req,res){
     res.json({
         success:true,
         message:"Admin Page",
