@@ -11,7 +11,7 @@ function validateMovieSelection(movies,movieId,Callback){
 }
 
 function validateTimeSelection(movies,selectedTime,Callback){
-    const selectedShowtime = movie.showtimesfind((show)=>show.time.toLowerCase()===selectedTime.toLowerCase());
+    const selectedShowtime = movie.showtimes.find((show)=>show.time.toLowerCase()===selectedTime.toLowerCase());
 
     if(!selectedShowtime){
         return Callback("Invalid time slot selection.Choose a valid time slot",null);
