@@ -1,34 +1,37 @@
 // Callback based validation functions
 
-function validateMovieSelection(movies,movieId,Callback){
+function validateMovieSelection(movies,movieId,callback) {
     const selectedMovie = movies.find((movie)=>movie.id === movieId);
 
-    if(!selectedMovie){
-        return Callback("Invalid movie selection.Choose a valid movie ID",null);
+    if (!selectedMovie) {
+        return callback("Invalid movie selection.Choose a valid movie ID.",null);
     }
-    Callback(null,selectedMovie);
+    callback(null,selectedMovie);
 
 }
 
-function validateTimeSelection(movies,selectedTime,Callback){
-    const selectedShowtime = movie.showtimes.find((show)=>show.time.toLowerCase()===selectedTime.toLowerCase());
+function validateTimeSelection(movie, selectedTime, callback) {
+  const selectedShowtime = movie.showtimes.find(
+    (show) => show.time.toLowerCase() === selectedTime.toLowerCase()
+  );
 
-    if(!selectedShowtime){
-        return Callback("Invalid time slot selection.Choose a valid time slot",null);
-    }
-    Callback(null,selectedShowtime);
+  if (!selectedShowtime) {
+    return callback("Invalid time slot selection. Please choose a valid show time.", null);
+  }
+
+  callback(null, selectedShowtime);
 }
 
-function validateSeatCount(seatCount,movieId,Callback){
-    if(!isNaN(seatCount) || seatCount <=0){
-        return Callback("Invalid seat count.Enter a valid seat count",null);
-    }
-    Callback(null,seatCount);
 
+function validateSeatCount(seatCount,callback) {
+    if (isNaN(seatCount) || seatCount <= 0) {
+        return callback("Invalid seat count.Enter a valid seat count.",null);
+    }
+    callback(null,seatCount);
 }
 
 module.exports = {
-   validateMovieSelection,
-   validateTimeSelection,
-   validateSeatCount
+    validateMovieSelection,
+    validateTimeSelection,
+    validateSeatCount
 };
