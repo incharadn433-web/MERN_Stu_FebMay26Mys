@@ -1,7 +1,5 @@
 # Dependencies (node_modules in both client and server)
 node_modules/
-package-lock.json
-package.json
 # Environment Variables (sensitive info like API keys, DB URI)
 .env
 .env.local
