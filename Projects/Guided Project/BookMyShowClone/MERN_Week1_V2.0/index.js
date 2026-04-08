@@ -1,4 +1,4 @@
-//Main file from where the project begins
+//Main file from where the project begin
 const readline = require("readline");
 const chalk = require("chalk");
 
