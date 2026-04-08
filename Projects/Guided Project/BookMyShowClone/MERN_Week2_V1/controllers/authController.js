@@ -1,4 +1,4 @@
-//User login, profile fetched and logout of user functionality created
+//User login, profile fetched and logout of user functionality Created
 const jwt = require("jsonwebtoken");
 const users = require("../data/users");
 
