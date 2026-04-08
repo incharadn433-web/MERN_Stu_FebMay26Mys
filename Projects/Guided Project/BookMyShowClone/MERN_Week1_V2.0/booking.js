@@ -1,6 +1,6 @@
 // Handles booking related operations
 const bookingEmitter = require("./events");
-const {appendBookingAync,appendLogAync} = require("./filemanger");
+const {appendBookingAsync,appendLogAsync} = require("./filemanager");
 
 let currentBooking = null;
 
@@ -108,8 +108,8 @@ async function processBookingAsync(movie,showtime,seatCount){
 }
 
 async function saveBookingToFile(booking){
-    await appendBookingAync(booking);
-    await appendLogAync(`Booking saved: ${booking.bookingId} for {booking.bookingId}`);
+    await appendBookingAsync(booking);
+    await appendLogAsync(`Booking saved: ${booking.bookingId} for {booking.bookingId}`);
 
     bookingEmitter.emit("bookingSaved.",booking);
     return booking;
