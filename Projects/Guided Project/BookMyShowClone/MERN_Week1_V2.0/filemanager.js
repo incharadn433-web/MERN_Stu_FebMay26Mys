@@ -1,4 +1,4 @@
-//Writing & reading bookings and its logs
+//Writing & reading bookings and its Logs
 const fs = require("fs");
 const path = require("path");
 
