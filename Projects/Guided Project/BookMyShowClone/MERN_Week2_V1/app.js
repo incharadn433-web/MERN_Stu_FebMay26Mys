@@ -1,6 +1,6 @@
-// Express app configuration file
+// Express app configuration File
 const express = require("express");
-const cokieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
 const loggerMiddleware = require("./middleware/loggerMiddleware");
@@ -10,7 +10,6 @@ const movieRoutes = require("./routes/movieRoutes");
 const authRoutes = require("./routes/authRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const userRoutes = require("./routes/userRoutes");
-const cookieParser = require("cookie-parser");
 
 const app = express();
 
