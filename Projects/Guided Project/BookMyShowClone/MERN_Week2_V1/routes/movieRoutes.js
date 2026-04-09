@@ -11,7 +11,7 @@ const {
 } = require("../controllers/movieController");
 const roleMiddleware = require("../middleware/roleMiddleware");
 
-const router = express.Route();
+const router = express.Router();
 //Sends req to home page
 router.get("/",getHome);
 //Sends req to get all movies
