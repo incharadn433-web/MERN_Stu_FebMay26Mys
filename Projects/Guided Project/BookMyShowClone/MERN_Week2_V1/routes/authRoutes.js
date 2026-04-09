@@ -1,0 +1,12 @@
+//Routes created for login, logout & profile
+const express = require("express");
+const {authMiddleware} = require("../middleware/authMiddleware");
+const {loginUser,logoutUser,getProfile} = require("../controllers/authController");
+
+const router = express.Route();
+
+router.post("/login",loginUser);
+router.post("/logout",logoutUser);
+router.post("/profile",authMiddleware,loginUser);
+
+module.exports = router;
