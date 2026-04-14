@@ -1,38 +1,69 @@
 const courses = [
     {
         id:1,
-        title:"Frontend developer",
+        title:"Frontend Developer",
+        instructor:"Rakesh",
         description:"Client based development",
-        limit:150,
+        total_lessons:3,
         lessons:[
             {name:"HTML"},
             {name:"CSS"},
-            {name:"Javascript"}
-        ]
+            {name:"JavaScript"}
+        ],
+        level:"Easy",
+        category:"Web Development",
+        limit:50,
+        enroll_status:20
     },
     {
         id:2,
-        title:"Backend developer",
+        title:"Backend Developer",
+        instructor:"Rakesh",
         description:"Server based development",
-        limit:100,
+        total_lessons:3,
         lessons:[
             {name:"Python"},
-            {name:"Java"},
-            {name:"Mongodb"}
-        ]
+            {name:"MongoDB"},
+            {name:"Java"}
+        ],
+        level:"Modern",
+        category:"Database",
+        limit:100,
+        enroll_status:50
     },
     {
         id:3,
-        title:"Fullstack developer",
+        title:"Full Stack Developer",
+        instructor:"Rakesh",
         description:"Client and Server based development",
-        limit:50,
+        total_lessons:5,
         lessons:[
             {name:"HTML"},
             {name:"CSS"},
-            {name:"Javascript"},
+            {name:"JavaScript"},
             {name:"NodeJS"},
             {name:"ExpressJS"}
-        ]
+        ],
+        level:"Modern",
+        category:"Programming",
+        limit:150,
+        enroll_status:75
+    },
+    {
+        id:3,
+        title:"Verbal Ability",
+        instructor:"Viganesh",
+        description:"Communication based Skills",
+        total_lessons:5,
+        lessons:[
+            {name:"Grammer"},
+            {name:"Tenses"},
+            {name:"Formal Writing"}
+        ],
+        level:"Modern",
+        category:"Soft Skills",
+        limit:100,
+        enroll_status:40
     }
 ];
 
