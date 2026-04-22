@@ -41,7 +41,7 @@ bookingSchema.pre("save",function(next){
         return next(new Error("At least one seat must be selected."))
     }
     if(this.totalSeats!=this.seats.length){
-        return next(new Error("Seat count nismatch"));
+        return next(new Error("Seat count ismatch"));
     }
     next();
 });
