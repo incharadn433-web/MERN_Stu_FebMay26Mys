@@ -1,33 +1,33 @@
 const jwt = require("jsonwebtoken");
-const user = require("../models/User");
+const User = require("../models/User");
 
-
-//Auth middleware
+// Auth middleware
 exports.protect = async(req,res,next)=>{
     try{
         let token;
         if(
             req.headers.authorization &&
-            req.headers.authorization.startswith("Bearer")
+            req.headers.authorization.startsWith("Bearer")
         ){
-            token = req.authorization.split("")[1];
+            token = req.headers.authorization.split(" ")[1];
         }
         if(!token){
             return res.status(401).json({
-                 success:false,
-                 message:"Not authorized, token missing"
+                success:false,
+                message:"Not authorized, token missing",
             });
         }
-        //verify token
+
+        //Verify token
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
 
         //Get user from DB
         const user = await User.findById(decoded.id);
 
-        if(!user){
-              return res.status(404).json({
-                 success:false,
-                 message:" User not found"
+        if (!user) {
+            return res.status(404).json({
+                success:false,
+                message:"User not found",
             });
         }
         //Attach user to request
@@ -35,9 +35,9 @@ exports.protect = async(req,res,next)=>{
         next();
     }
     catch(error){
-          return res.status(401).json({
-                 success:false,
-                 message:"Invalid or expired token"
-            })
+         return res.status(401).json({
+                success:false,
+                message:"Invalid or expired token",
+            });
     }
-}
+};
