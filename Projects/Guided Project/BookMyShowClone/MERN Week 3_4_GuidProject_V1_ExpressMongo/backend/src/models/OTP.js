@@ -1,5 +1,4 @@
-const mongoose = require("express");
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
 
 const otpSchema = new mongoose.Schema({
     email:{
@@ -13,7 +12,7 @@ const otpSchema = new mongoose.Schema({
         required:true,
         select:false
     },
-    expireAt:{
+    expiresAt:{
         type:Date,
         required:true,
     },
