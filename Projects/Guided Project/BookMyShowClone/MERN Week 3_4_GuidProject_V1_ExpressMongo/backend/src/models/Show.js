@@ -1,48 +1,50 @@
 const mongoose = require("mongoose");
+// Sub schema
 const seatSchema = new mongoose.Schema({
     seatNumber:{
         type:String,
-        required:true, 
+        required:true,
     },
     isBooked:{
         type:Boolean,
         default:false,
-    }, 
+    },
 },{_id:false});
 
 const showSchema = new mongoose.Schema({
-       movieId:{
+    movieId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Movie",
         required:true,
         index:true,
-       },
-       date:{
+    },
+    date:{
         type:Date,
         required:true,
         index:true,
-       },
-       time:{
+    },
+    time:{
         type:String,
         required:true,
-       },
-       totalSeats:{
+    },
+    totalSeats:{
         type:Number,
         required:true,
-       },
-       availabelSeats:{
+    },
+    availableSeats:{
         type:Number,
         required:true,
-       },
-       seats:{
+    },
+    seats:{
         type:[seatSchema],
         required:true,
-       },
-       isActive:{
+    },
+    isActive:{
         type:Boolean,
         default:true,
-       }
-},{
+    },
+},
+{
     timestamps:true,
 });
 
@@ -50,10 +52,16 @@ const showSchema = new mongoose.Schema({
 showSchema.index({movieId:1,date:1});
 
 //Add Validation
-showSchema.pre("save",function(next){
-    if(this.availabelSeats>this.totalSeats){
-        return next(new Error("Available seats cannot exceed total seats"));
+// showSchema.pre("save",function(next){
+//     if (this.availableSeats>this.totalSeats) {
+//         return next(new Error("Available seats cannot exceed total seats"));
+//     }
+//     next();
+// });
+// New Add Validation code
+showSchema.pre("save", async function () {
+    if (this.availableSeats > this.totalSeats) {
+        throw new Error("Available seats cannot exceed total seats");
     }
-    next();
 });
 module.exports = mongoose.model("Show",showSchema);
