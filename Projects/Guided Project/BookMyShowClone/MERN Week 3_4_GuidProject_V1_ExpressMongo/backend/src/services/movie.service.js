@@ -1,5 +1,5 @@
 
-const movie = require("../models/Movie");
+const Movie = require("../models/Movie");
 
 //Create Movie
 exports.createMovie = async (data) => {
@@ -72,6 +72,4 @@ exports.updateMovie = async (id, data) => {
         if (!movie) {
             throw new Error("Movie not found");
         }
-    }
-
-module.exports = movie;
+    };
