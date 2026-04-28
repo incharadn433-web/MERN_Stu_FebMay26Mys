@@ -1,22 +1,22 @@
 const projectsData = [
   {
     id: 1,
-    name: "Movie Time",
-    category: "MERN",
+    name: "Hotel Management system",
+    category: "Web Development",
     description:
-      "Full stack movie ticket booking application with AI-powered smart movie suggestions.",
-    technologies: ["ReactJS", "ExpressJS", "MongoDB"],
+      "Full stack hotel booking application Using HTML and CSS.",
+    technologies: ["HTML", "CSS", "PYTHON"],
     status: "Live",
     liveDemo: "#",
     github: "#"
   },
   {
     id: 2,
-    name: "Gola",
-    category: "MERN",
+    name: "An intelligent Face focused Deepfake Detection using Vision Transformers and LSTM",
+    category: "Web Development",
     description:
-      "Cab booking platform that helps users quickly book rides for daily travel.",
-    technologies: ["ReactJS", "ExpressJS", "MongoDB"],
+      "Face focused Deepfake Detection platform that helps to detect AI prompt and it gives ouput as Real or Fake..",
+    technologies: ["HTML", "CSS", "PYTHON 3.10+"],
     status: "Live",
     liveDemo: "#",
     github: "#"
@@ -29,17 +29,6 @@ const projectsData = [
       "Responsive personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["HTML", "Tailwind CSS", "JavaScript"],
     status: "Live",
-    liveDemo: "#",
-    github: "#"
-  },
-  {
-    id: 4,
-    name: "Developer Stats Dashboard",
-    category: "JavaScript",
-    description:
-      "Dynamic dashboard that loads developer statistics and profile insights using Fetch API.",
-    technologies: ["JavaScript", "Fetch API", "JSON"],
-    status: "Demo",
     liveDemo: "#",
     github: "#"
   }
