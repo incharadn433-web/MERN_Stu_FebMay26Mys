@@ -15,7 +15,7 @@ const projectsData = [
     name: "An intelligent Face focused Deepfake Detection using Vision Transformers and LSTM",
     category: "Web Development",
     description:
-      "Face focused Deepfake Detection platform that helps to detect AI prompt and it gives ouput as Real or Fake..",
+      "Face focused Deepfake Detection that helps to detect AI prompt image/video and it gives ouput as Real or Fake with probability scores..",
     technologies: ["HTML", "CSS", "PYTHON 3.10+"],
     status: "Live",
     liveDemo: "#",
