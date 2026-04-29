@@ -18,13 +18,13 @@ exports.protect = async(req,res,next)=>{
             });
         }
 
-        //Verify token
+        // Verify token
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
-
-        //Get user from DB
+        
+        // Get user from DB
         const user = await User.findById(decoded.id);
 
-        if (!user) {
+        if(!user){
             return res.status(404).json({
                 success:false,
                 message:"User not found",
@@ -32,12 +32,12 @@ exports.protect = async(req,res,next)=>{
         }
         //Attach user to request
         req.user = user;
-        next();
+        next(); 
     }
     catch(error){
-         return res.status(401).json({
-                success:false,
-                message:"Invalid or expired token",
-            });
+        return res.status(401).json({
+            success:false,
+            message:"Invalid or expired token",
+        });        
     }
 };

@@ -1,29 +1,30 @@
 const movieService = require("../services/movie.service");
 
-//Create Movie
-exports.createMovie = async(req,res,next)=>{
+// Create Movie
+exports.createMovie = async (req,res,next) => {
     try{
         const movie = await movieService.createMovie(req.body);
 
         res.status(201).json({
             success:true,
-            message:"Movie created successfuly",
-            data:movie
+            message:"Movie created successfully",
+            data:movie,
         });
     }
     catch(error){
         next(error);
     }
 };
-//Get Movies
-exports.getMovies = async(req,res,next)=>{
+
+// Get Movies
+exports.getMovies = async (req,res,next) => {
     try{
         const result = await movieService.getMovies(req.query);
 
         res.status(200).json({
             success:true,
             message:"Movie List fetched",
-            data:result
+            data:result,
         });
     }
     catch(error){
@@ -31,7 +32,8 @@ exports.getMovies = async(req,res,next)=>{
     }
 };
 
-exports.updateMovie = async(req,res,next)=>{
+// Update Movie
+exports.updateMovie = async (req,res,next) => {
     try{
         const movie = await movieService.updateMovie(
             req.params.id,
@@ -40,27 +42,25 @@ exports.updateMovie = async(req,res,next)=>{
 
         res.status(200).json({
             success:true,
-            message:"Movie updated successfuly",
-            data:movie
+            message:"Movie updated successfully",
+            data:movie,
         });
     }
     catch(error){
         next(error);
     }
 };
-
-exports.deleteMovie = async(req,res,next)=>{
+// Delete Movie
+exports.deleteMovie = async (req,res,next) => {
     try{
         await movieService.deleteMovie(req.params.id);
 
         res.status(200).json({
             success:true,
-            message:"Movie deleted successfuly"
+            message:"Movie deleted successfully",
         });
     }
     catch(error){
         next(error);
     }
-
-    
 };
