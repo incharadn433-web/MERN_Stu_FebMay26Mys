@@ -2,7 +2,7 @@ function initTypingAnimation() {
     const typingText = document.getElementById("typing-text");
     if (!typingText) return;
 
-    const roles = ["Full-Stack developer", "MERN enthusiast", "Competitive Programmer"];
+    const roles = ["Software-Trainee", "MERN enthusiast", "Competitive Programmer"];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;

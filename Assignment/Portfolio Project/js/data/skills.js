@@ -23,5 +23,12 @@ const skillsData = [
     name: "MongoDB",
     shortLabel: "M",
     description: "Document-based database design and backend integration."
+  },
+  {
+    id: 5,
+    name: "NodeJS",
+    shortLabel: "N",
+    description: "Event Loop, NPM, Modules, Buffer, EventEmitter"
   }
+
 ];
