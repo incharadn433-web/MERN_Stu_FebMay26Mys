@@ -8,6 +8,7 @@ import { SharedStateParent } from './components/P5'
 import { CompositionDemo } from './components/P6'
 import { ObjectsAndarrayProps } from './components/P7'
 import { PropsImmutability } from './components/P8'
+import { PropsState } from './components/P9'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       {/* <SharedStateParent/> */}
        {/* <CompositionDemo/> */}
        {/* <ObjectsAndarrayProps/> */}
-       <PropsImmutability/>
+       {/* <PropsImmutability/> */}
+       <PropsState/>
 
     </>
   )
