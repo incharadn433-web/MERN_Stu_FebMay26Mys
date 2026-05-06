@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { UseContextIntro } from './components/P1'
-import { CustomHooksIntro , useDocumentTitle} from './components/P2'
+import { CustomHooksIntro} from './components/P2'
+import { UseRefIntro } from './components/P3'
 import './App.css'
 
 function App() {
   return (
     <>
       {/* <UseContextIntro /> */}
-      <CustomHooksIntro />
+      {/* <CustomHooksIntro /> */}
+      <UseRefIntro />
       
     </>
   )
