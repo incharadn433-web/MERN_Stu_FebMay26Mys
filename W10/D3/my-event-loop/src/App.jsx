@@ -5,6 +5,7 @@ import { PassingArguments } from './components/P3'
 import { ParentComponent } from './components/P5'
 import { EventDelegation } from './components/P6'
 import { FormPattern } from './components/P7';
+import { KeyboardEvent } from './components/P8';
 import './App.css'
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       {/* <PassingArguments /> */}
       {/* <ParentComponent /> */}
       {/* <EventDelegation /> */}
-      <FormPattern />
+      {/* <FormPattern /> */}
+      <KeyboardEvent />
     </>
   )
 }
