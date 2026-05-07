@@ -7,6 +7,7 @@ import { EventDelegation } from './components/P6'
 import { FormPattern } from './components/P7';
 import { KeyboardEvent } from './components/P8';
 import { EventObj } from './components/P9';
+import { Accessibility } from './components/P10';
 import './App.css'
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       {/* <EventDelegation /> */}
       {/* <FormPattern /> */}
       {/* <KeyboardEvent /> */}
-      <EventObj />
+      {/* <EventObj /> */}
+      <Accessibility/>
     </>
   )
 }
