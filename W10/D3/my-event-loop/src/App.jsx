@@ -6,6 +6,7 @@ import { ParentComponent } from './components/P5'
 import { EventDelegation } from './components/P6'
 import { FormPattern } from './components/P7';
 import { KeyboardEvent } from './components/P8';
+import { EventObj } from './components/P9';
 import './App.css'
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
       {/* <ParentComponent /> */}
       {/* <EventDelegation /> */}
       {/* <FormPattern /> */}
-      <KeyboardEvent />
+      {/* <KeyboardEvent /> */}
+      <EventObj />
     </>
   )
 }
