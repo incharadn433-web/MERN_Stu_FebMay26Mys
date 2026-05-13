@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {api} from "../services/api"
 
 //Axios usage with useEffect
 export function AxiosLifecycle(){
