@@ -2,28 +2,37 @@ const Movie = require("../models/Movie");
 
 const sampleMovies = [
   {
-    title: "The Midnight Chase",
+    title: "Dhurandar",
     genre: "Action",
     rating: 4.5,
     duration: 135,
     releaseDate: new Date("2025-01-20"),
-    poster: "https://example.com/posters/midnight-chase.jpg",
+    poster: "",
   },
   {
-    title: "Laugh Riot",
+    title: "Interstellar",
     genre: "Comedy",
     rating: 4.2,
     duration: 110,
     releaseDate: new Date("2024-11-08"),
-    poster: "https://example.com/posters/laugh-riot.jpg",
+    poster: "",
   },
   {
-    title: "Space Frontier",
+    title: "Dune",
     genre: "Sci-Fi",
     rating: 4.8,
     duration: 148,
     releaseDate: new Date("2025-03-12"),
-    poster: "https://example.com/posters/space-frontier.jpg",
+    poster: "",
+  },
+  {
+    
+    title: "Inception",
+    genre: "Sci-Fi",
+    rating: 4.8,
+    duration: 148,
+    releaseDate: new Date("2025-03-12"),
+    poster: "",
   },
 ];
 
