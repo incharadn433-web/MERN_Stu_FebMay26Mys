@@ -1,10 +1,7 @@
 // src/services/booking.service.js
-
-
 const Booking = require("../models/Booking");
 const Show = require("../models/Show");
 const CustomError = require("../utils/customError");
-
 
 /*
 -----------------------------------------

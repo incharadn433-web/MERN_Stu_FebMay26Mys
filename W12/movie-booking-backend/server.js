@@ -4,14 +4,13 @@ require("dotenv").config();
 
 const app = require("./app");
 const connectDB = require("./src/config/db");
-const seedMovies = require("./src/utils/seeder");
 
 /*
 -----------------------------------------
 CONNECT DATABASE
 -----------------------------------------
 */
-connectDB().then(() => seedMovies());
+connectDB();
 /*
 -----------------------------------------
 PORT CONFIGURATION
