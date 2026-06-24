@@ -71,7 +71,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
-import { registerUser } from "../api/authApi";
+import { registerUser, verifyOtp } from "../api/authApi";
 
 
 export default function Signup() {
@@ -82,7 +82,17 @@ export default function Signup() {
     name: "",
     email: "",
     password: "",
+    role: "user",
   });
+
+
+  const [otp, setOtp] = useState("");
+
+
+  const [isOtpStage, setIsOtpStage] = useState(false);
+
+
+  const [registeredEmail, setRegisteredEmail] = useState("");
 
 
   const [loading, setLoading] = useState(false);
@@ -157,20 +167,53 @@ export default function Signup() {
 
 
       setSuccess(response.message || "Registration successful.");
+      setRegisteredEmail(form.email);
+      setIsOtpStage(true);
+    } catch (error) {
+      setError(error.message || "Registration failed.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
 
-      /*
-      -----------------------------------------
-      REDIRECT TO LOGIN
-      -----------------------------------------
-      */
+  async function handleOtpSubmit(event) {
+    event.preventDefault();
+
+
+    setError("");
+    setSuccess("");
+
+
+    if (!otp.trim()) {
+      setError("OTP is required.");
+      return;
+    }
+
+
+    if (loading) return;
+
+
+    try {
+      setLoading(true);
+
+
+      const response = await verifyOtp({
+        email: registeredEmail,
+        otp,
+      });
+
+
+      setSuccess(
+        response?.message || "OTP verified. You may now log in."
+      );
 
 
       setTimeout(() => {
         navigate("/login");
       }, 1500);
     } catch (error) {
-      setError(error.message || "Registration failed.");
+      setError(error.message || "OTP verification failed.");
     } finally {
       setLoading(false);
     }
@@ -191,49 +234,88 @@ export default function Signup() {
       {success && <div style={styles.success}>{success}</div>}
 
 
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-          disabled={loading}
-          required
-        />
+      {!isOtpStage ? (
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={form.name}
+            onChange={handleChange}
+            disabled={loading}
+            required
+          />
 
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={form.email}
-          onChange={handleChange}
-          disabled={loading}
-          required
-        />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={form.email}
+            onChange={handleChange}
+            disabled={loading}
+            required
+          />
 
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          disabled={loading}
-          required
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            disabled={loading}
+            required
+          />
+
+          <label style={styles.label}>
+            Role
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+              disabled={loading}
+              style={styles.select}
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Creating Account..." : "Signup"}
+          </button>
+        </form>
+      ) : (
+        <form onSubmit={handleOtpSubmit} style={styles.form}>
+          <p style={styles.subtitle}>
+            Enter the OTP sent to <strong>{registeredEmail}</strong>
+          </p>
 
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating Account..." : "Signup"}
-        </button>
-      </form>
+          <input
+            type="text"
+            name="otp"
+            placeholder="One-time password"
+            value={otp}
+            onChange={(event) => setOtp(event.target.value)}
+            disabled={loading}
+            required
+          />
 
 
-      <p style={styles.footer}>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+          <button type="submit" disabled={loading}>
+            {loading ? "Verifying OTP..." : "Verify OTP"}
+          </button>
+        </form>
+      )}
+
+
+      {!isOtpStage && (
+        <p style={styles.footer}>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      )}
     </section>
   );
 }
