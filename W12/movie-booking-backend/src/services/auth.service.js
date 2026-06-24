@@ -10,7 +10,7 @@ const CustomError = require("../utils/customError");
 REGISTER USER
 -----------------------------------------
 */
-exports.registerUser = async ({ name, email, password }) => {
+exports.registerUser = async ({ name, email, password, role = "user" }) => {
   const existingUser = await User.findOne({ email });
 
   if (existingUser) {
@@ -21,6 +21,7 @@ exports.registerUser = async ({ name, email, password }) => {
     name,
     email,
     password,
+    role,
   });
 
   await otpService.generateOTP(email);

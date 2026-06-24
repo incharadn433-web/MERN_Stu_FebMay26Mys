@@ -100,6 +100,7 @@ GET USER BOOKINGS
 exports.getUserBookings = async (userId) => {
   return await Booking.find({
     userId,
+    status: "booked",
   })
     .populate({
       path: "showId",
